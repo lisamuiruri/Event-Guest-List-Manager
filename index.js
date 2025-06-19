@@ -1,7 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const guestForm = document.getElementById('guestForm');
-    const guestNameInput = document.getElementById('guestNameInput');
+    const Form = document.getElementById('guestForm');
+    const Input = document.getElementById('guestNameInput');
     const guestList = document.getElementById('guestList');
+
+       Form. addEventListener(`submit`, function (event) {
+          event.preventDefault();
+
+          const name = this.input.value.trim();
+          if (name === ``) return;
+
+          const li = document.createElement(`li`);
+           li.textContent = name;
+           guestList.appendChild(li);
+
+           input.value = ``;
+       });
 
     const MAX_GUESTS = 10;
     let currentGuests = []; // To keep track of guests and their RSVP status
